@@ -9,3 +9,7 @@ const jsontoxml = () => {
     convert.jsontoxml(document.getElementById('json').value)
   );
 };
+
+const cargarJson = () => {
+  document.getElementById('json').value = JSON.stringify(jsonCertificado);
+};

@@ -1,8 +1,7 @@
 const jsontoxmlFunc = input => {
   try {
-    jsonObject = JSON.parse(input);
-    varXML = JXON.jsToXml(jsonObject);
-    console.log(varXML);
+    const jsonObject = JSON.parse(input);
+    const varXML = JXON.jsToXml(jsonObject);
     return varXML;
   } catch (e) {
     return e;
@@ -11,9 +10,7 @@ const jsontoxmlFunc = input => {
 
 const xmltojsonFunc = input => {
   try {
-    varJSON = JXON.stringToJs(input);
-    console.log(varJSON);
-    return varJSON;
+    return JXON.stringToJs(input);
   } catch (e) {
     return e;
   }
