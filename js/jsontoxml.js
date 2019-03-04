@@ -1,32 +1,22 @@
 const jsontoxmlFunc = input => {
-  var jsonval = false;
-  var xmlval = false;
   try {
     jsonObject = JSON.parse(input);
-    varXML = iterativeXML(jsonObject);
+    varXML = JXON.jsToXml(jsonObject);
+    console.log(varXML);
     return varXML;
-  } catch {
-    xmlval = false;
+  } catch (e) {
+    return e;
   }
-
-  return xmlval;
 };
 
 const xmltojsonFunc = input => {
-  return input;
-};
-
-const iterativeXML = jsonObject => {
-  var xmlDoc = document.implementation.createDocument(null, 'books');
-  var xmlString = '';
-  for (var o in jsonObject) {
-    if (typeof jsonObject[o] === 'object') {
-      xmlString += iterativeXML(jsonObject[o]);
-    } else {
-      xmlString += o + ':' + JSON.stringify(jsonObject[o]) + '|';
-    }
+  try {
+    varJSON = JXON.stringToJs(input);
+    console.log(varJSON);
+    return varJSON;
+  } catch (e) {
+    return e;
   }
-  return xmlString;
 };
 
 convert = {
