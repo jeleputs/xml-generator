@@ -18,38 +18,146 @@ const addElement = () => {
   var wrapper;
 
   wrapper = convert.addElement({
-    name: 'doc',
-    content: 'id'
+    name: 'Dec',
+    attributes: {
+      $version: '1.0',
+      $tipoCertificado: '5',
+      $folioControl: '565',
+      $sello: 'Sello base 64',
+      $certificadoResponsable: 'Certificado base 64',
+      $noCertificadoResponsable: '556563335448446'
+    }
   });
 
-  jsonChido = convert.addElement({
-    name: '$prueba',
-    content: 'bonita',
-    wrapper
+  convert.addElement({
+    name: 'Ipes',
+    attributes: {
+      $idNombreInstitucion: '34234',
+      $nombreInstitucion: 'nombre',
+      $idCampus: '5ss',
+      $campus: 'Durango',
+      $idEntidadFederativa: '05',
+      $entidadFederativa: 'Coahuila'
+    },
+    jsonNode: wrapper.Dec
   });
 
-  alumno = convert.addElement({
+  convert.addElement({
+    name: 'Responsable',
+    attributes: {
+      $curp: 'AXXA009988999',
+      $nombre: 'Ricardo',
+      $primerApellido: 'Aguilera',
+      $segundoApellido: 'Zamarripa',
+      $idCargo: '05',
+      $cargo: 'Director'
+    },
+    jsonNode: wrapper.Dec
+  });
+
+  convert.addElement({
+    name: 'Rvoe',
+    attributes: {
+      $numero: '999',
+      $fechaExpedicion: '2018-01-30T12:30:10.00221'
+    },
+    jsonNode: wrapper.Dec
+  });
+
+  convert.addElement({
+    name: 'Carrera',
+    attributes: {
+      $idCarrera: 'XD34',
+      $claveCarrera: 'RE44',
+      $nombreCarrera: 'Ingeniería en alimentos',
+      $idTipoPeriodo: '02',
+      $tipoPeriodo: 'semestral',
+      $clavePlan: '18'
+    },
+    jsonNode: wrapper.Dec
+  });
+
+  convert.addElement({
     name: 'Alumno',
-    content: {
-      $nombre: 'ricardo',
-      $apellido: 'aguilera',
-      $ap2: 'zamarripa',
-      $rfc: 'auzr88'
+    attributes: {
+      $numeroControl: 'XD34',
+      $curp: 'RE44',
+      $nombre: 'Ingeniería en alimentos',
+      $primerApellido: '02',
+      $segundoApellido: 'semestral',
+      $idGenero: '18',
+      $fechaNacimiento: '2018-01-30T12:30:10.00221',
+      $foto: 'zxcv2sd3gd81vb3cvx582h34f3g68hgf3xc',
+      $firmaAutografa: 'zxcv2sd3gd81vb3cvx582h34f3g68hgf3xc'
     },
-    jsonChido
+    jsonNode: wrapper.Dec
   });
 
-  firmante = convert.addElement({
-    name: 'Firmante',
-    content: {
-      $lugar: 'saltillo',
-      $certificado: '123123123',
-      $firma: 'asfdasdfasf',
-      $fecha: '2019-01-01'
+  convert.addElement({
+    name: 'Expedicion',
+    attributes: {
+      $idTipoCertificacion: '332',
+      $tipoCertificacion: 'online',
+      $fecha: '2018-01-30T12:30:10.00221',
+      $idLugarExpedicion: '05',
+      $lugarExpedicion: 'coahuila'
     },
-    jsonChido
+    jsonNode: wrapper.Dec
   });
 
-  //jsonChido['oiiiink'] = jsonChido2;
+  convert.addElement({
+    name: 'Asignaturas',
+    attributes: {
+      $total: '45',
+      $asignadas: '45',
+      $promedio: '8.71',
+      $idLugarExpedicion: '05',
+      $lugarExpedicion: 'coahuila'
+    },
+    jsonNode: wrapper.Dec
+  });
+
+  convert.addElement({
+    name: 'Asignatura',
+    attributes: {
+      $idAsignatura: '001',
+      $claveAsignatura: 'AXA',
+      $nombre: 'Agricultura',
+      $ciclo: '15',
+      $calificacion: '8.2',
+      $idObservaciones: 'asdf',
+      $observaciones: 'hoy'
+    },
+    jsonNode: wrapper.Dec.Asignaturas
+  });
+
+  convert.addElement({
+    name: 'Asignatura',
+    attributes: {
+      $idAsignatura: '002',
+      $claveAsignatura: 'AXA',
+      $nombre: 'Agricultura',
+      $ciclo: '15',
+      $calificacion: '8.2',
+      $idObservaciones: 'asdf',
+      $observaciones: 'hoy'
+    },
+    jsonNode: wrapper.Dec.Asignaturas
+  });
+
+  convert.addElement({
+    name: 'Asignatura',
+    attributes: {
+      $idAsignatura: '003',
+      $claveAsignatura: 'AXA',
+      $nombre: 'Agricultura',
+      $ciclo: '15',
+      $calificacion: '8.2',
+      $idObservaciones: 'asdf',
+      $observaciones: 'hoy'
+    },
+    jsonNode: wrapper.Dec.Asignaturas
+  });
+
   document.getElementById('json').value = JSON.stringify(wrapper);
 };

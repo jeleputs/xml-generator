@@ -16,14 +16,29 @@ const xmltojsonFunc = input => {
   }
 };
 
-var json = {};
-
 const addElementFunc = params => {
   var name = params.name;
-  var content = params.content;
-  var jsonNode = params.jsonNode || json;
+  var attributes = params.attributes;
+  var jsonNode = params.jsonNode ? params.jsonNode : {};
 
-  jsonNode[name] = content;
+  if (typeof jsonNode[name] !== 'undefined') {
+    var currentData = jsonNode[name];
+    var dataCopied = JSON.parse(JSON.stringify(currentData));
+    currentData = new Array();
+
+    if (Array.isArray(dataCopied)) {
+      for (var i in dataCopied) {
+        currentData.push(dataCopied[i]);
+      }
+      currentData.push(attributes);
+    } else {
+      currentData.push(dataCopied);
+      currentData.push(attributes);
+    }
+    jsonNode[name] = currentData;
+  } else {
+    jsonNode[name] = attributes;
+  }
   return jsonNode;
 };
 
